@@ -17,7 +17,7 @@ interfering with my real machine.
     - `docker pull manjarolinux/base`
     - This is unnecessary if using the `Dockerfile` in the next step
 - Build a docker container using the Dockerfile in the current directory
-    - `docker built -t "dotfiles" .`
+    - `docker built -t "foo:dotfiles" .`
 - Run the container we just built [i]nteractively in a [t]ty
     - `docker run -it <image_Id> bash`
     - You can obtain <image_id> by running `docker images`
