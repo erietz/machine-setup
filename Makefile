@@ -3,7 +3,7 @@
 build:
 	docker build --rm -t "foo:dotfiles" ./
 
-.PHONY: build
+.PHONY: run
 run: build
 	docker run --rm -i -t "foo:dotfiles"
 
