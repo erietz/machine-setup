@@ -9,11 +9,16 @@
   community.general.pacman:
     name: 
       - i3-gaps
-      # - i3-help
-      # - i3-scripts
       - i3exit
       # - i3lock
+      # - i3-help
+      # - i3-scripts
       - scrot
       - i3-scrot
-      # - pulseaudio
+      - xfce4-power-manager
+      - nm-applet
+      - nitrogen
+      - xautolock
+      - dmenu
+      - rofi
     state: present
