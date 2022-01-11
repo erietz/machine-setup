@@ -1,0 +1,19 @@
+- name: Run the equivalent of "pacman -Syu" before installing i3
+  become: yes
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Installing i3 and packages used in i3 config
+  become: yes
+  community.general.pacman:
+    name: 
+      - i3-gaps
+      # - i3-help
+      # - i3-scripts
+      - i3exit
+      # - i3lock
+      - scrot
+      - i3-scrot
+      # - pulseaudio
+    state: present

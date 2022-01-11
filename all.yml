@@ -16,3 +16,5 @@
       vars:
         dotfiles_dir: "{{ lookup('env', 'HOME') }}/.ewr"
     - import_tasks: ./tasks/neovim.yml
+
+    # - import_tasks: ./tasks/i3.yml
