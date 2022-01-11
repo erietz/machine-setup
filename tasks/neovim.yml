@@ -1,0 +1,10 @@
+- name: Installing neovim and plugin dependencies
+  become: yes
+  community.general.pacman:
+    name:
+      - neovim
+      - fzf
+      - ripgrep
+      - fd
+      - bat
+    state: present

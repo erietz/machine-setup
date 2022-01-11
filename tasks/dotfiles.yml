@@ -1,0 +1,19 @@
+- name: Cloning dotfile repo
+  ansible.builtin.git:
+    repo: https://github.com/erietz/.ewr.git
+    dest: "{{ dotfiles_dir }}"
+
+# TODO: use GNU stow instead of makefile since I no longer need makefile to
+# install dependencies
+- name: Make sure .config and .local directories exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    state: directory
+  with_items:
+    - .config
+    - .local
+
+- name: Symlink files using makefile
+  make:
+    chdir: "{{ dotfiles_dir }}" 
+    target: links

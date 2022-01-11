@@ -1,0 +1,51 @@
+- name: Run the equivalent of "pacman -Syu" before installing zsh
+  become: yes
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Installing zsh
+  become: yes
+  community.general.pacman:
+    name: 
+      - zsh
+      - inetutils   # becuase my config requires `hostname`
+    state: present
+
+- name: Change shell to zsh
+  become: yes
+  shell: chsh -s $(which zsh)
+
+- name: Create plugin_dir if it doesn't exist
+  file:
+    dest: "{{ plugin_dir }}"
+    state: directory
+
+- name: Installing git prompt
+  get_url:
+    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+    dest: "{{ plugin_dir }}/git-prompt.sh"
+
+- name: Installing zsh plugins
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/{{ item }}.git
+    dest: "{{ plugin_dir }}/{{ item }}"
+  with_items:
+    - zsh-syntax-highlighting
+    - zsh-completions
+    - zsh-autosuggestions
+
+# - name: Install zsh-autosuggestions
+#   ansible.builtin.git:
+#     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+#     dest: "{{ plugin_dir }}/zsh-autosuggestions"
+
+# - name: Install zsh-syntax-highlighting
+#   ansible.builtin.git:
+#     repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+#     dest: "{{ plugin_dir }}/zsh-syntax-highlighting"
+
+# - name: Install zsh-completions
+#   ansible.builtin.git:
+#     repo: 'https://github.com/zsh-users/zsh-completions.git'
+#     dest: "{{ plugin_dir }}/zsh-completions"

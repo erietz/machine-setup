@@ -17,5 +17,7 @@ RUN echo '%wheel ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
 USER ethan
 WORKDIR /home/ethan
 
-# Get run after container is built
-CMD ["echo", "The manjaro docker image is ready for ansible!"]
+COPY . .
+
+# Gets run after container is built
+CMD ["sh", "-c", "ansible-playbook --ask-become-pass all.yml; bash"]
