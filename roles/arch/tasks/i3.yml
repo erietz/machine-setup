@@ -13,7 +13,7 @@
       - network-manager-applet
       - nitrogen
       - xautolock
-      - dmenu
+      - dmenu-manjaro
       - rofi
     state: present
 
