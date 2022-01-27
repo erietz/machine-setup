@@ -1,0 +1,25 @@
+- name: Install GNU Stow
+  become: yes
+  community.general.pacman:
+    name: stow
+    state: present
+
+- name: Cloning dotfile repo
+  ansible.builtin.git:
+    repo: https://github.com/erietz/.dotfiles.git
+    dest: "{{ dotfiles_dir }}"
+
+- name: Symlink files using stow
+  command: ./install.sh
+  args:
+    chdir: "{{ dotfiles_dir }}" 
+
+- name: Installing essential tui programs
+  become: yes
+  community.general.pacman:
+    name:
+      - tmux
+      - ranger
+      - jq
+      - yq
+    state: present

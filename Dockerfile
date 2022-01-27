@@ -10,8 +10,8 @@ RUN pacman -Syu --noconfirm ansible
 # default shell to bash
 RUN useradd --create-home --shell /bin/bash ethan
 RUN echo "ethan:secret_pw" | chpasswd
-RUN usermod -aG wheel ethan
-RUN echo '%wheel ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
+RUN printf 'root ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+RUN printf 'ethan ALL=(ALL) ALL\n' | tee -a /etc/sudoers
 
 # use the user ethan in the container
 USER ethan

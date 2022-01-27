@@ -1,20 +1,10 @@
 - name: Completely setting up a linux machine
   hosts: localhost
 
-  pre_tasks:
-    - name: Full system upgrade
-      become: yes
-      community.general.pacman:
-        update_cache: yes
-        upgrade: yes
+  roles:
+    - role: arch
+      when: ansible_os_family == "Archlinux"
+    # - role: debian
+    #   when: ansible_os_family == "Debian"
+    # - role: common
 
-  tasks:
-    - import_tasks: ./tasks/zsh.yml
-      vars:
-        plugin_dir: "{{ lookup('env', 'HOME') }}/.config/ewr-plugins"
-    - import_tasks: ./tasks/dotfiles.yml
-      vars:
-        dotfiles_dir: "{{ lookup('env', 'HOME') }}/.ewr"
-    - import_tasks: ./tasks/neovim.yml
-
-    # - import_tasks: ./tasks/i3.yml
