@@ -1,11 +1,21 @@
 
-.PHONY: build
-build:
-	docker build --rm -t "foo:dotfiles" ./
+.PHONY: build-manjaro
+build-manjaro:
+	docker build --rm -t "manjaro:dotfiles" -f ./test/manjaro/Dockerfile ./
 
-.PHONY: run
-run: build
-	docker run --rm -i -t "foo:dotfiles"
+.PHONY: run-manjaro
+run-manjaro: build-manjaro
+	docker run --rm -i -t "manjaro:dotfiles"
+
+
+.PHONY: build-ubuntu
+build-ubuntu:
+	docker build --rm -t "ubuntu:dotfiles" -f ./test/ubuntu/Dockerfile ./
+
+.PHONY: run-ubuntu
+run-ubuntu: build-ubuntu
+	docker run --rm -i -t "ubuntu:dotfiles"
+
 
 .PHONY: clean-images
 clean-images:

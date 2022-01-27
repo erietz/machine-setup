@@ -1,10 +1,22 @@
-- name: Completely setting up a linux machine
+- name: Detecting which OS to setup
   hosts: localhost
 
-  roles:
-    - role: arch
-      when: ansible_os_family == "Archlinux"
-    # - role: debian
-    #   when: ansible_os_family == "Debian"
-    # - role: common
+  tasks:
+    - name: Completely setting up an Ubuntu machine
+      include_role:
+        name: debian
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Completely setting up a Manjaro machine
+      include_role:
+        name: arch
+      when: ansible_distribution == "Archlinux"
+
+  # roles:
+  #   # TODO: this is not detecting the when statements correctly
+  #   - role: debian
+  #     when: ansible_distribution == "Ubuntu"
+  #   - role: arch
+  #     when: ansible_distribution == "Archlinux"
+  #   # - role: common
 
