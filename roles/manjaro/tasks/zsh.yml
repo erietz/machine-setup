@@ -10,20 +10,20 @@
   become: yes
   shell: chsh -s $(which zsh)
 
-- name: Create plugin_dir if it doesn't exist
+- name: Create _plugin_dir if it doesn't exist
   file:
-    dest: "{{ plugin_dir }}"
+    dest: "{{ _plugin_dir }}"
     state: directory
 
 - name: Cloning git prompt
   get_url:
     url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-    dest: "{{ plugin_dir }}/git-prompt.sh"
+    dest: "{{ _plugin_dir }}/git-prompt.sh"
 
 - name: Cloning zsh plugins
   ansible.builtin.git:
     repo: https://github.com/zsh-users/{{ item }}.git
-    dest: "{{ plugin_dir }}/{{ item }}"
+    dest: "{{ _plugin_dir }}/{{ item }}"
   with_items:
     - zsh-syntax-highlighting
     - zsh-completions

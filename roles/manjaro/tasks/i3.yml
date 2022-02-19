@@ -16,15 +16,3 @@
       - dmenu-manjaro
       - rofi
     state: present
-
-- name: Installing essential GUI programs
-  become: yes
-  community.general.pacman:
-    name:
-      - alacritty
-      - ttf-jetbrains-mono
-      - ttf-ubuntu-font-family
-      - firefox
-      - discord
-      - zathura
-    state: present

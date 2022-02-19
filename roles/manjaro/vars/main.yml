@@ -1,0 +1,22 @@
+_plugin_dir: "{{ lookup('env', 'HOME') }}/.config/ewr-plugins"
+_dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
+
+_pacman_packages_tui:
+  - tmux
+  - ranger
+  - jq
+  - yq
+
+_pacman_packages_gui:
+  - alacritty
+  - ttf-jetbrains-mono
+  - ttf-ubuntu-font-family
+  - firefox
+  - discord
+  - zathura
+
+_neovim_dependencies:
+  - fzf
+  - ripgrep
+  - fd
+  - bat

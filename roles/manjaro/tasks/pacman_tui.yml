@@ -1,0 +1,5 @@
+- name: Installing pacman TUI packages
+  become: yes
+  community.general.pacman:
+    name: "{{ _pacman_packages_tui }}"
+    state: present

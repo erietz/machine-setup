@@ -20,4 +20,4 @@ WORKDIR /home/ethan
 COPY . .
 
 # Gets run after container is built
-CMD ["sh", "-c", "ansible-playbook --ask-become-pass all.yml; bash"]
+CMD ["sh", "-c", "ansible-playbook --ask-become-pass manjaro.yml; bash"]

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    _gui: False
+
+  tasks:
+    - assert:
+        that: ansible_distribution == "Archlinux"
+
+    - import_role:
+        name: unix
+    - import_role:
+        name: manjaro
