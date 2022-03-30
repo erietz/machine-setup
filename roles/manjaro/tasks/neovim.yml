@@ -1,11 +1,11 @@
 - name: Installing neovim
-  become: yes
+  become: True
   community.general.pacman:
     name: neovim
     state: present
 
 - name: Installing programs used by neovim config
-  become: yes
+  become: True
   community.general.pacman:
     name: "{{ _neovim_dependencies }}"
     state: present

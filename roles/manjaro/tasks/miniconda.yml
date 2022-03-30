@@ -1,0 +1,23 @@
+- name: Check if miniconda is installed
+  stat: path={{ _miniconda_dir }}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
+- name: Download miniconda installer
+  become: False
+  get_url:
+    url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    dest: /tmp/install-miniconda.sh
+    checksum: sha256:4ee9c3aa53329cd7a63b49877c0babb49b19b7e5af29807b793a76bdb1d362b4
+    mode: 0755
+  register: miniconda_downloaded
+  when: bin_conda.stat.exists == False
+
+- name: Run miniconda installer
+  become: False
+  ansible.builtin.command:
+    argv:
+      - /tmp/install-miniconda.sh
+      - -b
+      - -p
+      - "{{ _miniconda_dir }}"

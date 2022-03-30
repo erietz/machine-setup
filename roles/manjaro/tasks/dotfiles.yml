@@ -1,5 +1,5 @@
 - name: Install GNU Stow
-  become: yes
+  become: True
   community.general.pacman:
     name: stow
     state: present
@@ -13,3 +13,5 @@
   command: ./install.sh
   args:
     chdir: "{{ _dotfiles_dir }}" 
+  register: output
+  changed_when: output.stdout != ""

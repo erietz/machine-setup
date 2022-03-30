@@ -1,5 +1,5 @@
 - name: Installing zsh
-  become: yes
+  become: True
   community.general.pacman:
     name:
       - zsh
@@ -7,15 +7,16 @@
     state: present
 
 - name: Change shell to zsh
-  become: yes
-  shell: chsh -s $(which zsh)
+  ansible.builtin.command: usermod --shell /bin/zsh {{ ansible_env.USER }}
+  become: true
+  changed_when: false
 
 - name: Create _plugin_dir if it doesn't exist
   file:
     dest: "{{ _plugin_dir }}"
     state: directory
 
-- name: Cloning git prompt
+- name: Downloading git prompt
   get_url:
     url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
     dest: "{{ _plugin_dir }}/git-prompt.sh"

@@ -1,5 +1,5 @@
 - name: Installing pacman GUI packages
-  become: yes
+  become: True
   community.general.pacman:
     name: "{{ _pacman_packages_gui }}"
     state: present

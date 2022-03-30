@@ -1,5 +1,5 @@
 - name: Installing i3 and packages used in i3 config
-  become: yes
+  become: True
   community.general.pacman:
     name:
       - i3-gaps

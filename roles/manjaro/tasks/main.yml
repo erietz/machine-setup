@@ -1,5 +1,5 @@
 - name: Full system upgrade
-  become: yes
+  become: True
   community.general.pacman:
     update_cache: yes
     upgrade: yes
@@ -8,6 +8,8 @@
 
 - import_tasks: ./tasks/pacman_gui.yml
   when: _gui
+
+# - import_tasks: ./tasks/miniconda.yml
 
 - import_tasks: ./tasks/zsh.yml
 
