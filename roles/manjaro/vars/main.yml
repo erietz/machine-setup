@@ -8,6 +8,8 @@ _pacman_packages_tui:
   - ranger
   - jq
   - yq
+  - tldr
+  - github-cli
 
 _pacman_packages_gui:
   - alacritty
