@@ -17,7 +17,16 @@ RUN printf 'ethan ALL=(ALL) ALL\n' | tee -a /etc/sudoers
 USER ethan
 WORKDIR /home/ethan
 
+# Copy everything in the current working directory of the host (should be the
+# root of this project) into the working directory of the container.
 COPY . .
 
+# Ansible playbook depends on the USER environmental variable which is
+# apparently not set at build time.
+ARG USER=ethan
+
+# cannot use interactive --ask-become-pass option from Dockerfile RUN
+RUN ansible-playbook manjaro.yml --extra-vars='ansible_become_pass=secret_pw'
+
 # Gets run after container is built
-CMD ["sh", "-c", "ansible-playbook --ask-become-pass manjaro.yml; bash"]
+CMD ["bash"]

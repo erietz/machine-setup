@@ -10,6 +10,7 @@ _pacman_packages_tui:
   - yq
   - tldr
   - github-cli
+  - python-pip
 
 _pacman_packages_gui:
   - alacritty

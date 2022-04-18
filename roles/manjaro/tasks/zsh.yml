@@ -7,7 +7,7 @@
     state: present
 
 - name: Change shell to zsh
-  ansible.builtin.command: usermod --shell /bin/zsh {{ ansible_env.USER }}
+  ansible.builtin.command: usermod --shell /bin/zsh "{{ lookup('env', 'USER') }}"
   become: true
   changed_when: false
 

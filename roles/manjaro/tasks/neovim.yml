@@ -9,3 +9,6 @@
   community.general.pacman:
     name: "{{ _neovim_dependencies }}"
     state: present
+
+- name: Running pip install pynvim
+  command: pip install pynvim
