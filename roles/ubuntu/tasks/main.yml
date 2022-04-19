@@ -1,3 +1,21 @@
-- name: Echo
-  debug:
-    msg: Hello from Ubuntu
+- name: Full system upgrade
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- import_tasks: ./apt_tui.yml
+
+- import_tasks: ./apt_gui.yml
+  when: _gui
+
+# - import_tasks: ./tasks/miniconda.yml
+
+- import_tasks: ./tasks/zsh.yml
+
+- import_tasks: ./tasks/dotfiles.yml
+
+- import_tasks: ./tasks/neovim.yml
+
+- import_tasks: ./tasks/i3.yml
+  when: _gui

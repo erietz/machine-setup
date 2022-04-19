@@ -1,0 +1,11 @@
+- name: Installing apt TUI package
+  become: True
+  apt:
+    pkg:
+      - tmux
+      - ranger
+      - jq
+      # - yq  # this is not correct in apt repos
+      - tldr
+      - gh
+      - python-pip-whl

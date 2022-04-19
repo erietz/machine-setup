@@ -1,0 +1,16 @@
+# TODO: put these somewhere else so they are not duplicates
+
+_plugin_dir: "{{ lookup('env', 'HOME') }}/.config/ewr-plugins"
+_dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
+_miniconda_dir: "{{ lookup('env', 'HOME') }}/miniconda"
+
+_neovim_dependencies:
+  # TODO: install miniconda and get pynvim dependency installed
+  - gcc       # treesitter
+  # TODO: install nvm
+  - nodejs    # coc
+  - npm       # coc
+  - fzf
+  - ripgrep
+  - fd-find
+  - bat

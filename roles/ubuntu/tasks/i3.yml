@@ -1,0 +1,18 @@
+- name: Installing i3 and packages used in i3 config
+  become: True
+  apt:
+    pkg:
+      - i3-gaps
+      - i3exit
+      # - i3lock
+      # - i3-help
+      # - i3-scripts
+      - scrot
+      - i3-scrot
+      - xfce4-power-manager
+      - network-manager-applet
+      - nitrogen
+      - xautolock
+      - dmenu-manjaro
+      - rofi
+    state: present
