@@ -6,7 +6,7 @@
 
 - name: Cloning dotfile repo
   ansible.builtin.git:
-    repo: https://github.com/erietz/.dotfiles.git
+    repo: git@github.com:erietz/.dotfiles.git
     dest: "{{ _dotfiles_dir }}"
 
 - name: Symlink files using stow
