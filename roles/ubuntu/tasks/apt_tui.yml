@@ -8,4 +8,19 @@
       # - yq  # this is not correct in apt repos
       - tldr
       - gh
-      - python-pip-whl
+      # - python-pip-whl
+      - python3-pip
+      - bat
+      - fd-find
+
+- name: Aliasing batcat
+  file:
+    src: /usr/bin/batcat
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
+    state: link
+
+- name: Aliasing fd-find
+  file:
+    src: /usr/bin/fdfind
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
+    state: link
