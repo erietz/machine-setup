@@ -1,0 +1,9 @@
+- name: Full system upgrade
+  community.general.homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- import_tasks: ./tasks/zsh.yml
+- import_tasks: ./tasks/brew_tui.yml
+# - import_tasks: ./tasks/brew_gui.yml
+
