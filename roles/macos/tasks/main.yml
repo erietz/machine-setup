@@ -3,7 +3,7 @@
     update_homebrew: yes
     upgrade_all: yes
 
-- import_tasks: ./tasks/zsh.yml
-- import_tasks: ./tasks/brew_tui.yml
-# - import_tasks: ./tasks/brew_gui.yml
-
+- import_tasks: zsh_plugins.yml
+- import_tasks: dotfiles.yml
+- import_tasks: ./tasks/homebrew.yml
+- import_tasks: ./tasks/nvim_lsp.yml

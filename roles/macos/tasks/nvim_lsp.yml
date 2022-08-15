@@ -1,0 +1,23 @@
+- name: Neovim LSP Brew packages
+  community.general.homebrew:
+    state: present
+    name:
+      - lua-language-server
+
+- name: Neovim LSP NPM | python
+  community.general.npm:
+    state: present
+    global: yes
+    name: pyright
+
+- name: Neovim LSP NPM | typescript
+  community.general.npm:
+    state: present
+    global: yes
+    name: ts-server
+
+- name: Neovim LSP NPM | HTML, CSS, and JSON
+  community.general.npm:
+    state: present
+    global: yes
+    name: vscode-langservers-extracted

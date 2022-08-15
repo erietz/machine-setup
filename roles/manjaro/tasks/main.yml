@@ -13,7 +13,7 @@
 
 - import_tasks: ./tasks/zsh.yml
 
-- import_tasks: ./tasks/dotfiles.yml
+- import_tasks: dotfiles.yml
 
 - import_tasks: ./tasks/neovim.yml
 

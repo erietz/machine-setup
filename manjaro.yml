@@ -9,6 +9,4 @@
         that: ansible_distribution == "Archlinux"
 
     - import_role:
-        name: unix
-    - import_role:
         name: manjaro

@@ -1,7 +1,3 @@
-_plugin_dir: "{{ lookup('env', 'HOME') }}/.config/ewr-plugins"
-_dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
-_miniconda_dir: "{{ lookup('env', 'HOME') }}/miniconda"
-
 _pacman_packages_tui:
   - which
   - tmux

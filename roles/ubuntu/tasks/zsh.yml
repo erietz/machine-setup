@@ -9,22 +9,4 @@
   command: usermod --shell /bin/zsh "{{ lookup('env', 'USER') }}"
   changed_when: false
 
-- name: Create _plugin_dir if it doesn't exist
-  file:
-    dest: "{{ _plugin_dir }}"
-    state: directory
-
-- name: Downloading git prompt
-  get_url:
-    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-    dest: "{{ _plugin_dir }}/git-prompt.sh"
-
-- name: Cloning zsh plugins
-  ansible.builtin.git:
-    repo: https://github.com/zsh-users/{{ item }}.git
-    dest: "{{ _plugin_dir }}/{{ item }}"
-  with_items:
-    - zsh-syntax-highlighting
-    - zsh-completions
-    - zsh-autosuggestions
-
+- import_tasks: zsh_plugins.yml

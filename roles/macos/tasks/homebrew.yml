@@ -1,4 +1,4 @@
 - name: Installing brew TUI packages
   community.general.homebrew:
-    name: "{{ _brew_packages_tui }}"
+    name: "{{ brew_packages }}"
     state: present

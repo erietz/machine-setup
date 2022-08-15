@@ -1,6 +1,5 @@
-- name: Install GNU Stow
-  become: True
-  apt:
+- name: "Install GNU stow"
+  ansible.builtin.package:
     name: stow
     state: present
 
@@ -15,4 +14,3 @@
     chdir: "{{ _dotfiles_dir }}" 
   register: output
   changed_when: output.stdout != ""
-

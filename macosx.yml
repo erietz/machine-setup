@@ -1,14 +1,10 @@
 ---
 - hosts: localhost
   connection: local
-  vars:
-    _gui: False
 
   tasks:
     - assert:
         that: ansible_distribution == "MacOSX"
 
-    - import_role:
-        name: unix
     - import_role:
         name: macos

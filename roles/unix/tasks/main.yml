@@ -1,3 +1,0 @@
-- name: Echo
-  debug:
-    msg: Hello from Unix Common Role

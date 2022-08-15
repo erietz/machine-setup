@@ -1,38 +1,25 @@
-_plugin_dir: "{{ lookup('env', 'HOME') }}/.config/ewr-plugins"
-_dotfiles_dir: "{{ lookup('env', 'HOME') }}/.dotfiles"
-_miniconda_dir: "{{ lookup('env', 'HOME') }}/miniconda"
+_core_utils:
+  - coreutils
+  - htop
+  - watch
 
-_brew_packages_tui:
+_dev_tools:
+  - gh
+  - neovim
   - tmux
   - ranger
-  - jq
-  - yq
-  - tldr
-  - gh
   - ripgrep
   - fd
   - bat
   - fzf
-  - lua-language-server
-  - htop
+  - exa
+  - jq
+  - yq
+
+_extras:
+  - tldr
   - figlet
   - lolcat
   - azure-cli
-  - exa
-  # - homebrew/cask-fonts/font-jetbrains-mono-nerd-font
 
-# _brew_packages_gui:
-#   - firefox
-#   - discord
-#   - zathura
-
-# _neovim_dependencies:
-#   # TODO: install miniconda and get pynvim dependency installed
-#   - gcc       # treesitter
-#   # TODO: install nvm
-#   - nodejs    # coc
-#   - npm       # coc
-#   - fzf
-#   - ripgrep
-#   - fd
-#   - bat
+brew_packages: "{{ _core_utils + _dev_tools + _extras }}"
