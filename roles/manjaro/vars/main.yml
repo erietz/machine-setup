@@ -20,7 +20,6 @@ _neovim_dependencies:
   # TODO: install miniconda and get pynvim dependency installed
   - gcc       # treesitter
   # TODO: install nvm
-  - nodejs    # coc
   - npm       # coc
   - fzf
   - ripgrep
