@@ -1,0 +1,40 @@
+- vars:
+  _dwm_dir: "{{ _dev_dir }}/dwm"
+  _slstatus_dir: "{{ _dev_dir }}/slstatus"
+  _st_dir: "{{ _dev_dir }}/st"
+
+
+- name: "git clone {{_dwm_dir}}"
+  ansible.builtin.git:
+    repo: git@github.com:erietz/dwm.git
+    dest: "{{_dwm_dir}}"
+
+- name: sudo make install dwm
+  make:
+    chdir: "{{_dwm_dir}}"
+    target: install
+  become: yes
+
+
+- name: "git clone {{_slstatus_dir}}"
+  ansible.builtin.git:
+    repo: git@github.com:erietz/slstatus.git
+    dest: "{{_slstatus_dir}}"
+
+- name: sudo make install slstatus
+  make:
+    chdir: "{{_slstatus_dir}}"
+    target: install
+  become: yes
+
+
+- name: "git clone {{_st_dir}}"
+  ansible.builtin.git:
+    repo: git@github.com:erietz/st.git
+    dest: "{{ _st_dir }}"
+
+- name: sudo make install slstatus
+  make:
+    chdir: "{{_st_dir}}"
+    target: install
+  become: yes

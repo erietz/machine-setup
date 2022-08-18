@@ -2,6 +2,8 @@ _core_utils:
   - coreutils
   - htop
   - watch
+  - wget
+  - tree
 
 _dev_tools:
   - gh
@@ -15,6 +17,9 @@ _dev_tools:
   - exa
   - jq
   - yq
+  - watchexec
+  - pastel
+  - tokei
 
 _extras:
   - tldr

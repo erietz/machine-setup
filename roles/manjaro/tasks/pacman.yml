@@ -1,0 +1,12 @@
+- name: Installing pacman TUI packages
+  become: True
+  community.general.pacman:
+    name: "{{ _pacman_packages_tui }}"
+    state: present
+
+- name: Installing pacman GUI packages
+  when: _gui
+  become: True
+  community.general.pacman:
+    name: "{{ _pacman_packages_gui }}"
+    state: present

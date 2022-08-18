@@ -1,4 +1,5 @@
 _pacman_packages_tui:
+  - neovim
   - which
   - tmux
   - ranger
@@ -15,14 +16,3 @@ _pacman_packages_gui:
   - firefox
   - discord
   - zathura
-
-_neovim_dependencies:
-  # TODO: install miniconda and get pynvim dependency installed
-  - gcc       # treesitter
-  # TODO: install nvm
-  - nodejs    # coc
-  - npm       # coc
-  - fzf
-  - ripgrep
-  - fd
-  - bat

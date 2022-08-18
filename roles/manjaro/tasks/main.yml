@@ -4,18 +4,22 @@
     update_cache: yes
     upgrade: yes
 
-- import_tasks: ./tasks/pacman_tui.yml
-
-- import_tasks: ./tasks/pacman_gui.yml
-  when: _gui
+- import_tasks: ./tasks/pacman.yml
+  tags: packages
 
 # - import_tasks: ./tasks/miniconda.yml
 
 - import_tasks: ./tasks/zsh.yml
+  tags: zsh
 
 - import_tasks: dotfiles.yml
+  tags: dotfiles
 
-- import_tasks: ./tasks/neovim.yml
-
-- import_tasks: ./tasks/i3.yml
+- import_tasks: suckless.yml
   when: _gui
+  tags: suckless
+
+# - import_tasks: ./tasks/i3.yml
+#   when: _gui
+#   tags: i3
+
