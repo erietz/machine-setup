@@ -2,6 +2,7 @@
   become: True
   apt:
     pkg:
+      - neovim
       - tmux
       - ranger
       - jq
@@ -24,3 +25,17 @@
     src: /usr/bin/fdfind
     dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
     state: link
+
+
+- name: Installing pacman GUI packages
+  when: _gui
+  become: True
+  apt:
+    pkg:
+      - alacritty
+      - ttf-jetbrains-mono
+      - ttf-ubuntu-font-family
+      - firefox
+      - discord
+      - zathura
+
