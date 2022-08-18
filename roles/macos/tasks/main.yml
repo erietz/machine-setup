@@ -5,9 +5,12 @@
 
 - import_tasks: zsh_plugins.yml
   tags: zsh
+
 - import_tasks: dotfiles.yml
   tags: dotfiles
+
 - import_tasks: ./tasks/homebrew.yml
   tags: packages
+
 - import_tasks: ./tasks/nvim_lsp.yml
   tags: lsp
