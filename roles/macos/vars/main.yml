@@ -28,3 +28,10 @@ _extras:
   - azure-cli
 
 brew_packages: "{{ _core_utils + _dev_tools + _extras }}"
+
+brew_cask_packages:
+  - font-jetbrains-mono-nerd-font
+  - postman
+  - dbeaver-community
+  - google-chrome
+  - spaceid

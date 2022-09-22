@@ -2,3 +2,8 @@
   community.general.homebrew:
     name: "{{ brew_packages }}"
     state: present
+
+- name: Installing brew GUI packages
+  community.general.homebrew_cask:
+    name: "{{ brew_cask_packages }}"
+    state: present
