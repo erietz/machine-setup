@@ -1,0 +1,12 @@
+- name: Installing yabai + skhd
+  community.general.homebrew:
+    state: present
+    name:
+      - koekeishiya/formulae/yabai
+      - koekeishiya/formulae/skhd
+
+- name: Starting yabai via brew service
+  command: brew services start yabai
+
+- name: Starting skhd via brew service
+  command: brew services start skhd

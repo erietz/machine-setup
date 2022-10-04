@@ -14,3 +14,6 @@
 
 - import_tasks: ./tasks/nvim_lsp.yml
   tags: lsp
+
+- import_tasks: ./tasks/yabai.yml
+  tags: yabai

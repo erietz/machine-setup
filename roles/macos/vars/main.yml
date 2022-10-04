@@ -27,11 +27,17 @@ _extras:
   - lolcat
   - azure-cli
 
-brew_packages: "{{ _core_utils + _dev_tools + _extras }}"
+_languages:
+  - go
+  - nodejs
+
+brew_packages: "{{ _core_utils + _dev_tools + _extras + _languages }}"
 
 brew_cask_packages:
-  - font-jetbrains-mono-nerd-font
+  - homebrew/cask-fonts/font-jetbrains-mono-nerd-font
   - postman
   - dbeaver-community
   - google-chrome
+  - firefox
+  - discord
   - spaceid
