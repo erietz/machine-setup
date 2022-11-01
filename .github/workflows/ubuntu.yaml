@@ -1,4 +1,4 @@
-name: Install Ubuntu Dotfiles
+name: Dotfiles
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  install:
+  install_ubuntu:
     runs-on: ubuntu-latest
     steps:
 
@@ -21,3 +21,17 @@ jobs:
       - name: Ansible Playbook -> Ubuntu
         run: |
           ansible-playbook -vv ubuntu.yml
+
+  install_macos:
+    runs-on: macos-latest
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Install Ansible
+        run: brew install ansible
+
+      - name: Ansible Playbook -> Macos
+        run: |
+          ansible-playbook -vv macos.yml
