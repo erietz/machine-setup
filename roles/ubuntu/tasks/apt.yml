@@ -14,17 +14,18 @@
       - bat
       - fd-find
 
+# GitHub actions must not use /usr/bin
 # - name: Aliasing batcat
 #   file:
 #     src: /usr/bin/batcat
 #     dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
 #     state: link
 
-- name: Aliasing fd-find
-  file:
-    src: /usr/bin/fdfind
-    dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
-    state: link
+# - name: Aliasing fd-find
+#   file:
+#     src: /usr/bin/fdfind
+#     dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
+#     state: link
 
 
 - name: Installing pacman GUI packages
