@@ -34,8 +34,8 @@
   apt:
     pkg:
       # - alacritty
-      - ttf-jetbrains-mono
-      - ttf-ubuntu-font-family
+      # - ttf-jetbrains-mono
+      # - ttf-ubuntu-font-family
       - firefox
       - discord
       - zathura
