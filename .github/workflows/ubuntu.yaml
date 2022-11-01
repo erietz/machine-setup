@@ -24,4 +24,4 @@ jobs:
       - name: Ansible Playbook -> Ubuntu
         run: |
           pwd
-          ansible-playbook ./ubuntu.yaml
+          ansible-playbook ubuntu.yml
