@@ -22,4 +22,6 @@ jobs:
         run: sudo apt install -y ansible
 
       - name: Ansible Playbook -> Ubuntu
-        run: ansible-playbook ubuntu.yaml
+        run: |
+          pwd
+          ansible-playbook ./ubuntu.yaml
