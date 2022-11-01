@@ -1,4 +1,5 @@
 _pacman_packages_tui:
+  - stow
   - neovim
   - which
   - tmux

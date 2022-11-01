@@ -1,9 +1,3 @@
-- name: "Install GNU stow"
-  become: True
-  ansible.builtin.package:
-    name: stow
-    state: present
-
 - name: Cloning dotfile repo
   ansible.builtin.git:
     repo: https://github.com/erietz/.dotfiles.git

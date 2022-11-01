@@ -2,6 +2,7 @@
   become: True
   apt:
     pkg:
+      - stow
       - neovim
       - tmux
       - ranger
@@ -37,6 +38,6 @@
       # - ttf-jetbrains-mono
       # - ttf-ubuntu-font-family
       - firefox
-      - discord
+      # - discord
       - zathura
 
