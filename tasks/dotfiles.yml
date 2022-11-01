@@ -1,4 +1,5 @@
 - name: "Install GNU stow"
+  become: True
   ansible.builtin.package:
     name: stow
     state: present
