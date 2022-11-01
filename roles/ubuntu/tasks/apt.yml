@@ -14,11 +14,11 @@
       - bat
       - fd-find
 
-- name: Aliasing batcat
-  file:
-    src: /usr/bin/batcat
-    dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
-    state: link
+# - name: Aliasing batcat
+#   file:
+#     src: /usr/bin/batcat
+#     dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
+#     state: link
 
 - name: Aliasing fd-find
   file:
