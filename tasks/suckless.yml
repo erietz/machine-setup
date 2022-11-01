@@ -1,6 +1,6 @@
 - name: "git clone {{_suckless_dwm_dir}}"
   ansible.builtin.git:
-    repo: https://github.com:erietz/dwm
+    repo: https://github.com/erietz/dwm
     dest: "{{_suckless_dwm_dir}}"
 
 - name: sudo make install dwm
@@ -12,7 +12,7 @@
 
 - name: "git clone {{_suckless_slstatus_dir}}"
   ansible.builtin.git:
-    repo: https://github.com:erietz/slstatus
+    repo: https://github.com/erietz/slstatus
     dest: "{{_suckless_slstatus_dir}}"
 
 - name: sudo make install slstatus
@@ -24,7 +24,7 @@
 
 - name: "git clone {{_suckless_st_dir}}"
   ansible.builtin.git:
-    repo: https://github.com:erietz/st
+    repo: https://github.com/erietz/st
     dest: "{{ _suckless_st_dir }}"
 
 - name: sudo make install slstatus
