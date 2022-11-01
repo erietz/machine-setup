@@ -20,7 +20,7 @@ on:
 
 jobs:
 
-  install:
+  install_ubuntu:
     runs-on: ubuntu-latest
     steps:
 

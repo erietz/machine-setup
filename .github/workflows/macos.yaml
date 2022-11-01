@@ -20,7 +20,7 @@ on:
 
 jobs:
 
-  install:
+  install_macos:
     runs-on: macos-latest
     steps:
 
