@@ -1,14 +1,26 @@
-name: Dotfiles
+name: Dotfiles on Ubuntu
 
 on:
   push:
     branches: [main]
+    paths:
+      - ".github/workflows/ubuntu.yaml"
+      - "ubuntu.ymlx"
+      - "roles/ubuntu/**"
+      - "group_vars/**"
+      - "tasks/**"
   pull_request:
     branches: [main]
+    paths:
+      - ".github/workflows/ubuntu.yaml"
+      - "ubuntu.ymlx"
+      - "roles/ubuntu/**"
+      - "group_vars/**"
+      - "tasks/**"
 
 jobs:
 
-  install_ubuntu:
+  install:
     runs-on: ubuntu-latest
     steps:
 
@@ -19,19 +31,4 @@ jobs:
         run: sudo apt install -y ansible
 
       - name: Ansible Playbook -> Ubuntu
-        run: |
-          ansible-playbook -vv ubuntu.yml
-
-  install_macos:
-    runs-on: macos-latest
-    steps:
-
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - name: Install Ansible
-        run: brew install ansible
-
-      - name: Ansible Playbook -> Macos
-        run: |
-          ansible-playbook -vv macos.yml
+        run: ansible-playbook -vv ubuntu.yml

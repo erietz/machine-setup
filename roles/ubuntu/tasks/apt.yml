@@ -33,7 +33,7 @@
   become: True
   apt:
     pkg:
-      - alacritty
+      # - alacritty
       - ttf-jetbrains-mono
       - ttf-ubuntu-font-family
       - firefox
