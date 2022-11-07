@@ -33,4 +33,4 @@ jobs:
 
       - name: docker run ansible playbook
         run: |
-          echo "secret_pw" | docker run --rm -i "manjaro:dotfiles" --exit-code-from
+          echo "secret_pw" | docker run --rm -i "manjaro:dotfiles"
