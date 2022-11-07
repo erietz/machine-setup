@@ -21,12 +21,9 @@ WORKDIR /home/ethan
 # root of this project) into the working directory of the container.
 COPY . .
 
-# Ansible playbook depends on the USER environmental variable which is
-# apparently not set at build time.
-ARG USER=ethan
-
-# cannot use interactive --ask-become-pass option from Dockerfile RUN
-RUN ansible-playbook manjaro.yml --extra-vars='ansible_become_pass=secret_pw'
+# # Ansible playbook depends on the USER environmental variable which is
+# # apparently not set at build time.
+# ARG USER=ethan
 
 # Gets run after container is built
-CMD ["bash"]
+CMD ["sh", "-c", "ansible-playbook --ask-become-pass manjaro.yml; bash"]
