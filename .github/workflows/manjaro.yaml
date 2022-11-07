@@ -27,5 +27,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: make run-manjaro
-        run: make run-manjaro
+      - name: docker build manjaro image
+        run: |
+          docker build --rm -t "manjaro:dotfiles" -f ./test/manjaro/Dockerfile ./
+
+      - name: docker run ansible playbook
+        run: |
+          echo "secret_pw" | docker run --rm -i "manjaro:dotfiles"
