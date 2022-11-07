@@ -1,4 +1,5 @@
 _pacman_packages_tui:
+  - gcc
   - make
   - git
   - stow
