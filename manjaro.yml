@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    _gui: True
+    _gui: False
 
   tasks:
     - assert:
