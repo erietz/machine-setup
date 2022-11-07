@@ -21,9 +21,7 @@ WORKDIR /home/ethan
 # root of this project) into the working directory of the container.
 COPY . .
 
-# # Ansible playbook depends on the USER environmental variable which is
-# # apparently not set at build time.
-# ARG USER=ethan
+ENV USER=ethan
 
 # Gets run after container is built
 CMD ["sh", "-c", "ansible-playbook --ask-become-pass manjaro.yml; bash"]
