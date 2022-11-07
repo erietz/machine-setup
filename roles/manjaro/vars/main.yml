@@ -1,4 +1,5 @@
 _pacman_packages_tui:
+  - make
   - git
   - stow
   - neovim

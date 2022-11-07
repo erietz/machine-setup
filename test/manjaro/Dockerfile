@@ -24,4 +24,4 @@ COPY . .
 ENV USER=ethan
 
 # Gets run after container is built
-CMD ["sh", "-c", "ansible-playbook --ask-become-pass manjaro.yml; bash"]
+CMD ["ansible-playbook", "--ask-become-pass", "manjaro.yml"]
