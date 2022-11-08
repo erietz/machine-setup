@@ -1,7 +1,12 @@
-_pacman_packages_tui:
-  - gcc
-  - make
+_dwm_dependencies:
+  - libx11
+  - libxft
+  - xorg-server
+  - xorg-xinit
+
+_essentials:
   - git
+  - base-devel
   - stow
   - neovim
   - which
@@ -12,6 +17,8 @@ _pacman_packages_tui:
   - tldr
   - github-cli
   - python-pip
+
+_pacman_packages_tui: "{{ _essentials + _dwm_dependencies }}"
 
 _pacman_packages_gui:
   - alacritty
