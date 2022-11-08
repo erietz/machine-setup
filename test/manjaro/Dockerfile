@@ -23,5 +23,9 @@ COPY . .
 
 ENV USER=ethan
 
-# Gets run after container is built
-CMD ["ansible-playbook", "--ask-become-pass", "manjaro.yml"]
+# Runs while image is being built
+# cannot use interactive --ask-become-pass option from Dockerfile RUN
+RUN ansible-playbook manjaro.yml --extra-vars='ansible_become_pass=secret_pw'
+
+# Runs when the container starts
+CMD ["zsh"]

@@ -20,5 +20,9 @@ WORKDIR /home/ethan
 
 COPY . .
 
-# Gets run after container is built
-CMD ["sh", "-c", "ansible-playbook --ask-become-pass ubuntu.yml; bash"]
+# Runs while image is being built
+# cannot use interactive --ask-become-pass option from Dockerfile RUN
+RUN ansible-playbook ubuntu.yml --extra-vars='ansible_become_pass=secret_pw'
+
+# Runs when the container starts
+CMD ["zsh"]
