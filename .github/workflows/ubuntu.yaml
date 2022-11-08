@@ -25,12 +25,8 @@ jobs:
   install_ubuntu:
     runs-on: ubuntu-latest
     steps:
+      - name: Install make
+        run: sudo apt install make
 
-      - name: Check out repository code
-        uses: actions/checkout@v3
-
-      - name: Install Ansible
-        run: sudo apt install -y ansible
-
-      - name: Ansible Playbook -> Ubuntu
-        run: ansible-playbook -vv ubuntu.yml
+      - name: docker build ubuntu image
+        run: make build-ubuntu
