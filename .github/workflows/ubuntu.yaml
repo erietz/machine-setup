@@ -9,6 +9,7 @@ on:
       - "roles/ubuntu/**"
       - "group_vars/**"
       - "tasks/**"
+      - "test/ubuntu/Dockerfile"
   pull_request:
     branches: [main]
     paths:
@@ -17,6 +18,7 @@ on:
       - "roles/ubuntu/**"
       - "group_vars/**"
       - "tasks/**"
+      - "test/ubuntu/Dockerfile"
 
 jobs:
 
