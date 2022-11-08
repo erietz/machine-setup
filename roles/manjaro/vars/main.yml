@@ -9,8 +9,10 @@ _essentials:
   - base-devel
   - stow
   - neovim
-  - which
   - tmux
+  - ripgrep
+  - fd
+  - bat
   - ranger
   - jq
   - yq
