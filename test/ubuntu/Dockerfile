@@ -20,6 +20,8 @@ WORKDIR /home/ethan
 
 COPY . .
 
+ENV USER=ethan
+
 # Runs while image is being built
 # cannot use interactive --ask-become-pass option from Dockerfile RUN
 RUN ansible-playbook ubuntu.yml --extra-vars='ansible_become_pass=secret_pw'
