@@ -9,7 +9,7 @@ on:
       - "roles/ubuntu/**"
       - "group_vars/**"
       - "tasks/**"
-      - "test/ubuntu/Dockerfile"
+      # - "test/ubuntu/Dockerfile"
   pull_request:
     branches: [main]
     paths:
@@ -18,7 +18,7 @@ on:
       - "roles/ubuntu/**"
       - "group_vars/**"
       - "tasks/**"
-      - "test/ubuntu/Dockerfile"
+      # - "test/ubuntu/Dockerfile"
 
 jobs:
 
@@ -28,8 +28,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Install make
-        run: sudo apt install make
+      # - name: Install make
+      #   run: sudo apt install make
 
-      - name: docker build ubuntu image
-        run: make build-ubuntu
+      # - name: docker build ubuntu image
+      #   run: make build-ubuntu
+
+      - name: Install Ansible
+        run: sudo apt install -y ansible
+
+      - name: Ansible Playbook -> Ubuntu
+        run: ansible-playbook -vv ubuntu.yml
