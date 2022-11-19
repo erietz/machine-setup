@@ -1,0 +1,14 @@
+- name: Check if ewr conda env exists
+  stat: path={{ _miniconda_dir }}/envs/ewr
+  register: conda_ewr
+  changed_when: conda_ewr.stat.exists == False
+
+- name: Create ewr conda env
+  command: conda create --name ewr python nodejs
+  when: conda_ewr.stat.exists == False
+
+- name: npm install language servers
+  shell: |
+    source {{ _miniconda_dir }}/etc/profile.d/conda.sh
+    conda activate ewr
+    npm install -g ts-server vscode-langservers-extracted
