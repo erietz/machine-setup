@@ -1,14 +1,17 @@
 - name: conda install python-lsp-server
   shell: |
     source {{ _miniconda_dir }}/etc/profile.d/conda.sh
+    conda activate base
     conda install python-lsp-server
 
 - name: conda install nodejs
   shell: |
     source {{ _miniconda_dir }}/etc/profile.d/conda.sh
+    conda activate base
     conda install nodejs
 
 - name: npm install language servers for html, css, and typescript
   shell: |
     source {{ _miniconda_dir }}/etc/profile.d/conda.sh
+    conda activate base
     npm install -g ts-server vscode-langservers-extracted
