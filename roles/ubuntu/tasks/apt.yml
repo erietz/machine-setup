@@ -16,38 +16,54 @@
       - python3-pip
       - bat
       - fd-find
+      - ripgrep
+      - fzf
 
 
 # GitHub actions must not use /usr/bin
-# - name: Aliasing batcat
-#   file:
-#     src: /usr/bin/batcat
-#     dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
-#     state: link
+- name: Aliasing batcat
+  file:
+    src: /usr/bin/batcat
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
+    state: link
 
-# - name: Aliasing fd-find
-#   file:
-#     src: /usr/bin/fdfind
-#     dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
-#     state: link
+- name: Aliasing fd-find
+  file:
+    src: /usr/bin/fdfind
+    dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
+    state: link
 
 
-- name: Installing pacman GUI packages
+- name: Installing dwm prerequisites
   when: _gui
   become: True
   apt:
     pkg:
-      # - alacritty
-      # - ttf-jetbrains-mono
-      # - ttf-ubuntu-font-family
-      - firefox
-      # - discord
-      - zathura
 
+      # dwm
       - build-essential
       - libx11-dev
       - libxft-dev
       - libxinerama-dev
       - libfreetype6-dev
       - libfontconfig1-dev
+      - xinit
+      - xterm
 
+- name: Installing apt GUI packages
+  when: _gui
+  become: True
+  apt:
+    pkg:
+      - dmenu
+      - rofi
+      - firefox
+      # - discord
+      - zathura
+      - clipit
+      - nm-tray
+      - xautolock
+      - nitrogen
+      - xfce4-power-manager
+      - pasystray
+      - breeze-cursor-theme
