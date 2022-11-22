@@ -19,17 +19,22 @@
       - ripgrep
       - fzf
 
+- name: Create ~/.local/bin
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.local/bin"
+    state: directory
+    recurse: yes
 
 # GitHub actions must not use /usr/bin
 - name: Aliasing batcat
   file:
-    src: /bin/batcat
+    src: /usr/bin/batcat
     dest: "{{ lookup('env', 'HOME') }}/.local/bin/bat"
     state: link
 
 - name: Aliasing fd-find
   file:
-    src: /bin/fdfind
+    src: /usr/bin/fdfind
     dest: "{{ lookup('env', 'HOME') }}/.local/bin/fd"
     state: link
 
