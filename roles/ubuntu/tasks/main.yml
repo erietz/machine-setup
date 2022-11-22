@@ -7,7 +7,8 @@
 - import_tasks: ./apt.yml
   tags: packages
 
-# - import_tasks: ./tasks/miniconda.yml
+- import_tasks: miniconda.yml
+  tags: conda
 
 - import_tasks: ./tasks/zsh.yml
   tags: zsh

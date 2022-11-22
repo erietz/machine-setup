@@ -17,7 +17,7 @@
   when: _gui
   tags: suckless
 
-- import_tasks: ./tasks/miniconda.yml
+- import_tasks: miniconda.yml
   tags: conda
 
 - import_tasks: ./tasks/language_servers.yml
