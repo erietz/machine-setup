@@ -32,6 +32,7 @@
   become: False
   ansible.builtin.command:
     argv:
+      - bash  # because anaconda devs dont know what bashisms are https://github.com/ContinuumIO/anaconda-issues/issues/13110
       - /tmp/install-miniconda.sh
       - -b
       - -p
