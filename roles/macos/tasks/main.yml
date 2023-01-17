@@ -3,11 +3,14 @@
     update_homebrew: yes
     upgrade_all: yes
 
-- import_tasks: zsh_plugins.yml
-  tags: zsh
-
 - import_tasks: ./tasks/homebrew.yml
   tags: packages
+
+- import_tasks: miniconda.yml
+  tags: miniconda
+
+- import_tasks: zsh_plugins.yml
+  tags: zsh
 
 - import_tasks: dotfiles.yml
   tags: dotfiles
