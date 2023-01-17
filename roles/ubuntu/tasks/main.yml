@@ -8,7 +8,7 @@
   tags: packages
 
 - import_tasks: miniconda.yml
-  tags: conda
+  tags: miniconda
 
 - import_tasks: ./tasks/zsh.yml
   tags: zsh
@@ -19,6 +19,3 @@
 - import_tasks: suckless.yml
   when: _gui
   tags: suckless
-
-# - import_tasks: ./tasks/i3.yml
-#   when: _gui

@@ -3,22 +3,27 @@
   register: bin_conda
   changed_when: bin_conda.stat.exists == False
 
+# If a newer version of miniconda exists since the below tasks were written,
+# the checksums will not match and the tasks will fail. The checksums can be
+# updated from this link https://docs.conda.io/en/latest/miniconda.html
+
 - name: Download miniconda installer for Linux
   become: False
   get_url:
     url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     dest: /tmp/install-miniconda.sh
-    checksum: sha256:78f39f9bae971ec1ae7969f0516017f2413f17796670f7040725dd83fcff5689
+    checksum: sha256:00938c3534750a0e4069499baf8f4e6dc1c2e471c86a59caa0dd03f4a9269db6
     mode: 0755
   register: miniconda_downloaded
   when: (bin_conda.stat.exists == False) and (ansible_distribution != "MacOSX")
 
+# TODO: Need a conditional check for arm vs x86 mac.
 - name: Download miniconda installer for MacOS (Intel x86)
   become: False
   get_url:
     url: https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     dest: /tmp/install-miniconda.sh
-    checksum: sha256:007bae6f18dc7b6f2ca6209b5a0c9bd2f283154152f82becf787aac709a51633
+    checksum: sha256:7406579393427eaf9bc0e094dcd3c66d1e1b93ee9db4e7686d0a72ea5d7c0ce5
     mode: 0755
   register: miniconda_downloaded
   when: (bin_conda.stat.exists == False) and (ansible_distribution == "MacOSX")
