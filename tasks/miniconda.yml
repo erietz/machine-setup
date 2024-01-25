@@ -12,7 +12,7 @@
   get_url:
     url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     dest: /tmp/install-miniconda.sh
-    checksum: sha256:00938c3534750a0e4069499baf8f4e6dc1c2e471c86a59caa0dd03f4a9269db6
+    checksum: sha256:c9ae82568e9665b1105117b4b1e499607d2a920f0aea6f94410e417a0eff1b9c
     mode: 0755
   register: miniconda_downloaded
   when: (bin_conda.stat.exists == False) and (ansible_distribution != "MacOSX")

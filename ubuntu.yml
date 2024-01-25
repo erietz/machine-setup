@@ -2,11 +2,11 @@
 - hosts: localhost
   connection: local
   vars:
-    _gui: True
+    _gui: False
 
   tasks:
     - assert:
-        that: ansible_distribution == "Ubuntu"
+        that: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
     - import_role:
         name: ubuntu
